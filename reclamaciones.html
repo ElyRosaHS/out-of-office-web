@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libro de Reclamaciones | Out of Office</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(
+          rgba(15, 23, 42, 0.72),
+          rgba(15, 23, 42, 0.72)
+        ),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+
+      background-size: cover;
+      background-position: center;
+      padding: 70px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: -35px auto 60px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .intro {
+      background: #eef6ff;
+      border-left: 5px solid #2563eb;
+      padding: 18px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      margin-top: 25px;
+      margin-bottom: 16px;
+      font-size: 20px;
+      color: #0f172a;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .checkbox {
+      margin-top: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 14px 34px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Out of Office</div>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="#">Escapadas</a>
+    <a href="#">Contacto</a>
+    <a href="reclamaciones.html">Libro de Reclamaciones</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Libro de Reclamaciones</h1>
+
+  <p>
+    Tu experiencia es importante para nosotros.
+    Registra aquí tu reclamo o queja y nuestro equipo revisará tu solicitud.
+  </p>
+</section>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="intro">
+      <strong>Out of Office</strong><br>
+      Agencia de viajes y experiencias.<br><br>
+
+      Completa la información solicitada.
+      Los campos marcados con * son obligatorios.
+    </div>
+
+    <form id="formReclamo">
+
+      <h2 class="section-title">
+        1. Datos del consumidor
+      </h2>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>Nombres *</label>
+          <input type="text" name="nombres" required>
+        </div>
+
+        <div class="field">
+          <label>Apellidos *</label>
+          <input type="text" name="apellidos" required>
+        </div>
+
+        <div class="field">
+          <label>Tipo de documento *</label>
+          <select name="tipoDocumento" required>
+            <option value="">Seleccione</option>
+            <option>DNI</option>
+            <option>CE</option>
+            <option>Pasaporte</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Número de documento *</label>
+          <input type="text" name="documento" required>
+        </div>
+
+        <div class="field">
+          <label>Correo electrónico *</label>
+          <input type="email" name="correo" required>
+        </div>
+
+        <div class="field">
+          <label>Teléfono *</label>
+          <input type="tel" name="telefono" required>
+        </div>
+
+        <div class="field full">
+          <label>Dirección</label>
+          <input type="text" name="direccion">
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">
+        2. Información del servicio
+      </h2>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>Tipo *</label>
+
+          <select name="tipo" required>
+            <option value="">Seleccione</option>
+            <option>Reclamo</option>
+            <option>Queja</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Servicio relacionado *</label>
+
+          <select name="servicio" required>
+            <option value="">Seleccione</option>
+            <option>Paquete de viaje</option>
+            <option>Hotel</option>
+            <option>Transporte</option>
+            <option>Actividad / experiencia</option>
+            <option>Atención al cliente</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Monto reclamado</label>
+          <input type="number" name="monto" step="0.01">
+        </div>
+
+        <div class="field">
+          <label>Número de reserva</label>
+          <input type="text" name="reserva">
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">
+        3. Detalle del reclamo o queja
+      </h2>
+
+      <div class="grid">
+
+        <div class="field full">
+          <label>Detalle *</label>
+          <textarea
+            name="detalle"
+            placeholder="Cuéntanos qué ocurrió..."
+            required>
+          </textarea>
+        </div>
+
+        <div class="field full">
+          <label>Pedido del consumidor *</label>
+          <textarea
+            name="pedido"
+            placeholder="Indica cómo deseas que atendamos tu solicitud..."
+            required>
+          </textarea>
+        </div>
+
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" required>
+
+        <span>
+          Declaro que la información ingresada es verdadera
+          y autorizo el tratamiento de mis datos para la atención
+          de esta solicitud.
+        </span>
+      </div>
+
+      <div class="button-container">
+        <button type="submit">
+          Enviar reclamo
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Out of Office · Agencia de Viajes
+  <br><br>
+  Tu próxima escapada empieza aquí.
+</footer>
+
+<script>
+  document
+    .getElementById("formReclamo")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      alert(
+        "Formulario listo. En el siguiente paso lo conectaremos con Make y Gmail."
+      );
+
+    });
+</script>
+
+</body>
+</html>
