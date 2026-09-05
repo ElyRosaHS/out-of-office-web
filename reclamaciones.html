@@ -387,17 +387,33 @@
 </footer>
 
 <script>
-  document
-    .getElementById("formReclamo")
-    .addEventListener("submit", function(event) {
+document.getElementById("formReclamo").addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-      event.preventDefault();
+  const form = event.target;
+  const datos = Object.fromEntries(new FormData(form).entries());
 
-      alert(
-        "Formulario listo. En el siguiente paso lo conectaremos con Make y Gmail."
-      );
-
+  try {
+    const respuesta = await fetch("https://hook.eu1.make.com/tnt65dmr604vjjn6k1rfpcimewmypk2i", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(datos)
     });
+
+    if (respuesta.ok) {
+      alert("Tu reclamo fue enviado correctamente.");
+      form.reset();
+    } else {
+      alert("No se pudo enviar el reclamo. Inténtalo nuevamente.");
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Ocurrió un error al enviar el reclamo.");
+  }
+});
 </script>
 
 </body>
