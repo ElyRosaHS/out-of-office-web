@@ -1,22 +1,604 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Out of Office | Agencia de Viajes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Out of Office | Escapadas sin complicaciones</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f8fafc;
+      color:#1f2937;
+      line-height:1.6;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:#0f172a;
+      color:white;
+      padding:18px 7%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 3px 12px rgba(0,0,0,.15);
+    }
+
+    .logo{
+      font-size:25px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:24px;
+      font-size:14px;
+    }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    .hero{
+      min-height:620px;
+      display:flex;
+      align-items:center;
+      padding:80px 7%;
+      color:white;
+
+      background:
+      linear-gradient(rgba(15,23,42,.58),rgba(15,23,42,.58)),
+      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#f97316;
+      padding:8px 15px;
+      border-radius:30px;
+      font-size:13px;
+      font-weight:bold;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:58px;
+      line-height:1.05;
+      margin-bottom:22px;
+    }
+
+    .hero p{
+      font-size:20px;
+      max-width:620px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#2563eb;
+      color:white;
+      text-decoration:none;
+      padding:14px 25px;
+      border-radius:9px;
+      margin-right:10px;
+      font-weight:700;
+    }
+
+    .btn:hover{
+      background:#1d4ed8;
+    }
+
+    .btn-light{
+      background:white;
+      color:#0f172a;
+    }
+
+    section{
+      padding:80px 7%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:48px;
+    }
+
+    .section-title h2{
+      font-size:38px;
+      color:#0f172a;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#64748b;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .card{
+      background:white;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:230px;
+      object-fit:cover;
+    }
+
+    .card-body{
+      padding:24px;
+    }
+
+    .card-body h3{
+      font-size:22px;
+      margin-bottom:10px;
+      color:#0f172a;
+    }
+
+    .card-body p{
+      color:#64748b;
+    }
+
+    .how{
+      background:#eef6ff;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .step{
+      background:white;
+      padding:30px;
+      border-radius:16px;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .step-number{
+      width:48px;
+      height:48px;
+      margin:0 auto 15px;
+      border-radius:50%;
+      background:#2563eb;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:bold;
+      font-size:20px;
+    }
+
+    .alicia{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+      background:#0f172a;
+      color:white;
+    }
+
+    .alicia-box{
+      background:#1e293b;
+      border-radius:20px;
+      padding:35px;
+    }
+
+    .alicia h2{
+      font-size:42px;
+      margin-bottom:18px;
+    }
+
+    .alicia p{
+      color:#cbd5e1;
+      margin-bottom:20px;
+    }
+
+    .bubble{
+      background:white;
+      color:#1f2937;
+      border-radius:15px;
+      padding:18px;
+      margin-bottom:14px;
+    }
+
+    .bubble.client{
+      background:#2563eb;
+      color:white;
+      margin-left:35px;
+    }
+
+    .reclamos{
+      text-align:center;
+      background:white;
+    }
+
+    .reclamos-box{
+      max-width:850px;
+      margin:auto;
+      padding:45px;
+      border-radius:18px;
+      background:#f8fafc;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .reclamos-box h2{
+      font-size:34px;
+      margin-bottom:15px;
+    }
+
+    footer{
+      background:#020617;
+      color:white;
+      text-align:center;
+      padding:35px 20px;
+    }
+
+    footer p{
+      color:#94a3b8;
+      margin-top:8px;
+    }
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .cards,
+      .steps,
+      .alicia{
+        grid-template-columns:1fr;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .hero{
+        min-height:550px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>Out of Office</h1>
+<header>
 
-    <h2>Tu próxima escapada empieza aquí</h2>
+  <div class="logo">
+    Out of Office
+  </div>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#escapadas">Escapadas</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#alicia">Alicia</a>
+    <a href="reclamaciones.html">Libro de Reclamaciones</a>
+  </nav>
+
+</header>
+
+
+<section class="hero" id="inicio">
+
+  <div class="hero-content">
+
+    <span class="tag">
+      ESCAPADAS EXPRESS
+    </span>
+
+    <h1>
+      De la oficina a tu próxima escapada.
+    </h1>
 
     <p>
-        Desconéctate de la rutina. Nosotros organizamos tu próxima experiencia.
+      Tú desconéctate. Nosotros organizamos tu viaje
+      de principio a fin.
     </p>
 
-    <button>Ver escapadas</button>
+    <a href="#escapadas" class="btn">
+      Ver escapadas
+    </a>
+
+    <a href="#alicia" class="btn btn-light">
+      Hablar con Alicia
+    </a>
+
+  </div>
+
+</section>
+
+
+<section id="escapadas">
+
+  <div class="section-title">
+
+    <h2>
+      Escapadas para cada momento
+    </h2>
+
+    <p>
+      Porque no todos desconectamos de la misma manera.
+      Diseñamos experiencias para profesionales,
+      parejas, amigos y familias.
+    </p>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-body">
+
+        <h3>
+          Escapadas Express
+        </h3>
+
+        <p>
+          Perfectas para profesionales que quieren
+          aprovechar un fin de semana sin perder horas
+          organizando el viaje.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-body">
+
+        <h3>
+          Viajes entre amigos
+        </h3>
+
+        <p>
+          Menos reuniones, más experiencias.
+          Nosotros organizamos el plan para que ustedes
+          solo se preocupen por disfrutar.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-body">
+
+        <h3>
+          Escapadas familiares
+        </h3>
+
+        <p>
+          Disfruten tiempo de calidad en familia
+          sin preocuparse por organizar alojamiento,
+          actividades y experiencias.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="how" id="como-funciona">
+
+  <div class="section-title">
+
+    <h2>
+      Así de simple
+    </h2>
+
+    <p>
+      Tú nos cuentas qué necesitas.
+      Nosotros nos encargamos del resto.
+    </p>
+
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">1</div>
+
+      <h3>
+        Cuéntanos tu idea
+      </h3>
+
+      <p>
+        Destino, fechas, acompañantes
+        y el tipo de experiencia que buscas.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">2</div>
+
+      <h3>
+        Organizamos la escapada
+      </h3>
+
+      <p>
+        Preparamos una propuesta considerando
+        transporte, alojamiento y actividades.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">3</div>
+
+      <h3>
+        Tú solo disfrutas
+      </h3>
+
+      <p>
+        Menos planificación,
+        más tiempo para desconectarte.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="alicia" id="alicia">
+
+  <div>
+
+    <span class="tag">
+      ASISTENTE VIRTUAL
+    </span>
+
+    <h2>
+      Conoce a Alicia
+    </h2>
+
+    <p>
+      Alicia es la asistente virtual de Out of Office.
+      Puede orientarte sobre nuestras escapadas,
+      ayudarte a identificar qué experiencia se adapta
+      mejor a ti y responder consultas sobre la agencia.
+    </p>
+
+    <p>
+      Alicia utiliza la base de conocimiento de
+      Out of Office para brindar respuestas alineadas
+      con nuestros servicios.
+    </p>
+
+    <a href="#" class="btn">
+      Conversar con Alicia
+    </a>
+
+  </div>
+
+
+  <div class="alicia-box">
+
+    <div class="bubble client">
+      Tengo poco tiempo y quiero viajar con mi familia
+      este fin de semana.
+    </div>
+
+    <div class="bubble">
+      ¡Perfecto! En Out of Office podemos ayudarte
+      a organizar una escapada familiar para que
+      ustedes se concentren en disfrutar.
+    </div>
+
+    <div class="bubble client">
+      No quiero pasar horas buscando hoteles
+      y actividades.
+    </div>
+
+    <div class="bubble">
+      Esa es justamente nuestra propuesta:
+      organizar la experiencia de principio a fin.
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="reclamos">
+
+  <div class="reclamos-box">
+
+    <h2>
+      Libro de Reclamaciones
+    </h2>
+
+    <p>
+      Si necesitas registrar un reclamo o queja,
+      ponemos a tu disposición nuestro
+      Libro de Reclamaciones Virtual.
+    </p>
+
+    <br>
+
+    <a href="reclamaciones.html" class="btn">
+      Registrar reclamo
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <strong>
+    Out of Office
+  </strong>
+
+  <p>
+    De la oficina a tu próxima escapada.
+  </p>
+
+  <p>
+    © 2026 Out of Office
+  </p>
+
+</footer>
 
 </body>
 </html>
