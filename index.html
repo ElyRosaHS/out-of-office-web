@@ -607,6 +607,203 @@
   </p>
 
 </footer>
+<!-- CHAT FLOTANTE ALICIA -->
 
+<style>
+  .alicia-chat-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25);
+    z-index: 9999;
+  }
+
+  .alicia-chat-button:hover {
+    background: #1d4ed8;
+  }
+
+  .alicia-chat {
+    display: none;
+    position: fixed;
+    right: 25px;
+    bottom: 90px;
+    width: 360px;
+    max-width: calc(100vw - 30px);
+    height: 500px;
+    max-height: calc(100vh - 120px);
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.28);
+    overflow: hidden;
+    z-index: 9999;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .alicia-chat-header {
+    background: #111827;
+    color: white;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .alicia-chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .alicia-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .alicia-status {
+    font-size: 11px;
+    color: #86efac;
+    margin-top: 2px;
+  }
+
+  .alicia-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .alicia-chat-body {
+    height: 365px;
+    padding: 18px;
+    overflow-y: auto;
+    background: #f8fafc;
+  }
+
+  .alicia-message {
+    background: white;
+    padding: 13px 15px;
+    border-radius: 4px 15px 15px 15px;
+    max-width: 85%;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .alicia-chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 13px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+  }
+
+  .alicia-chat-input input {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 20px;
+    padding: 11px 14px;
+    outline: none;
+  }
+
+  .alicia-chat-input button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+  }
+</style>
+
+
+<button class="alicia-chat-button" onclick="toggleAliciaChat()">
+  💬 Habla con Alicia
+</button>
+
+
+<div class="alicia-chat" id="aliciaChat">
+
+  <div class="alicia-chat-header">
+
+    <div class="alicia-chat-header-info">
+
+      <div class="alicia-avatar">
+        A
+      </div>
+
+      <div>
+        <strong>Alicia</strong><br>
+        <span class="alicia-status">● Asistente Out of Office</span>
+      </div>
+
+    </div>
+
+    <button class="alicia-close" onclick="toggleAliciaChat()">
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="alicia-chat-body">
+
+    <div class="alicia-message">
+      👋 ¡Hola! Soy Alicia, la asistente virtual de Out of Office.
+      <br><br>
+      Cuéntame, ¿qué tipo de escapada estás buscando?
+    </div>
+
+  </div>
+
+
+  <div class="alicia-chat-input">
+
+    <input
+      type="text"
+      placeholder="Escribe tu mensaje..."
+      id="aliciaInput"
+    >
+
+    <button type="button">
+      ➤
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+  function toggleAliciaChat() {
+
+    const chat = document.getElementById("aliciaChat");
+
+    if (chat.style.display === "block") {
+      chat.style.display = "none";
+    } else {
+      chat.style.display = "block";
+    }
+
+  }
+</script>
+
+<!-- FIN CHAT ALICIA -->
 </body>
 </html>
