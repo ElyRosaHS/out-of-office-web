@@ -559,19 +559,37 @@
 
 
 <script>
-
 document
   .getElementById("solicitudForm")
-  .addEventListener("submit", function(event) {
+  .addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
-    document
-      .getElementById("mensaje")
-      .style.display = "block";
+    const form = event.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://hook.eu1.make.com/aflg2bkasj1n5lf9qvnouti3krcha8mx", {
+        method: "POST",
+        body: data
+      });
+
+      if (response.ok) {
+        document
+          .getElementById("mensaje")
+          .style.display = "block";
+
+        form.reset();
+      } else {
+        alert("No se pudo enviar la solicitud. Intenta nuevamente.");
+      }
+
+    } catch (error) {
+      alert("Ocurrió un error al enviar la solicitud.");
+      console.error(error);
+    }
 
   });
-
 </script>
 
 
