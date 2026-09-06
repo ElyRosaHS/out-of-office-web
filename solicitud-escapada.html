@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Solicitud de Escapada | Out of Office</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7f9;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      text-align: center;
+      padding: 65px 20px 90px;
+    }
+
+    .hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 17px;
+      color: #d1d5db;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: -45px auto 60px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 38px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.08);
+    }
+
+    .intro {
+      margin-bottom: 32px;
+    }
+
+    .intro h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: #6b7280;
+    }
+
+    .section-title {
+      margin: 30px 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 9px;
+      font-size: 14px;
+      background: white;
+      transition: .2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #111827;
+      box-shadow: 0 0 0 3px rgba(17,24,39,.08);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .help {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 5px;
+    }
+
+    .consent {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 4px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 28px;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #111827;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      background: #1f2937;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 9px;
+      background: #ecfdf5;
+      color: #065f46;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media(max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">OUT OF OFFICE</div>
+
+  <a href="index.html">
+    ← Volver al inicio
+  </a>
+</header>
+
+
+<section class="hero">
+
+  <span class="tag">
+    TU PRÓXIMA ESCAPADA EMPIEZA AQUÍ
+  </span>
+
+  <h1>
+    Cuéntanos cómo quieres desconectarte
+  </h1>
+
+  <p>
+    Tú dinos cuándo, con quién y qué tipo de experiencia buscas.
+    Nosotros nos encargamos de ayudarte a organizar el resto.
+  </p>
+
+</section>
+
+
+<main class="container">
+
+<div class="card">
+
+  <div class="intro">
+
+    <h2>
+      Solicitud de escapada
+    </h2>
+
+    <p>
+      Completa tus datos y preferencias para que el equipo de
+      Out of Office pueda preparar una propuesta acorde contigo.
+    </p>
+
+  </div>
+
+
+  <form id="solicitudForm">
+
+
+    <div class="section-title">
+      1. Tus datos
+    </div>
+
+
+    <div class="grid">
+
+      <div>
+        <label>Nombre *</label>
+
+        <input
+          type="text"
+          name="nombre"
+          required
+          placeholder="Ej. Elizabeth">
+      </div>
+
+
+      <div>
+        <label>Correo electrónico *</label>
+
+        <input
+          type="email"
+          name="correo"
+          required
+          placeholder="correo@ejemplo.com">
+      </div>
+
+
+      <div>
+        <label>Teléfono / WhatsApp *</label>
+
+        <input
+          type="tel"
+          name="telefono"
+          required
+          placeholder="999 999 999">
+      </div>
+
+
+      <div>
+        <label>¿Con quién viajarás?</label>
+
+        <select name="tipoViaje">
+
+          <option value="">
+            Selecciona una opción
+          </option>
+
+          <option value="Solo">
+            Viajo solo/a
+          </option>
+
+          <option value="Pareja">
+            En pareja
+          </option>
+
+          <option value="Familia">
+            En familia
+          </option>
+
+          <option value="Amigos">
+            Con amigos
+          </option>
+
+        </select>
+      </div>
+
+    </div>
+
+
+
+    <div class="section-title">
+      2. Tu escapada
+    </div>
+
+
+    <div class="grid">
+
+
+      <div>
+
+        <label>Destino</label>
+
+        <input
+          type="text"
+          name="destino"
+          placeholder="Ej. Tarapoto, Paracas...">
+
+        <div class="help">
+          Si aún no sabes dónde viajar, escribe “Quiero recomendación”.
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <label>Número de viajeros *</label>
+
+        <input
+          type="number"
+          name="viajeros"
+          min="1"
+          required
+          placeholder="2">
+
+      </div>
+
+
+      <div>
+
+        <label>Fecha aproximada de salida</label>
+
+        <input
+          type="date"
+          name="fechaSalida">
+
+      </div>
+
+
+      <div>
+
+        <label>Fecha aproximada de regreso</label>
+
+        <input
+          type="date"
+          name="fechaRegreso">
+
+      </div>
+
+
+      <div>
+
+        <label>Tipo de experiencia</label>
+
+        <select name="experiencia">
+
+          <option value="">
+            Selecciona una opción
+          </option>
+
+          <option value="Descanso">
+            Descanso y desconexión
+          </option>
+
+          <option value="Naturaleza">
+            Naturaleza
+          </option>
+
+          <option value="Aventura">
+            Aventura
+          </option>
+
+          <option value="Gastronomia">
+            Gastronomía
+          </option>
+
+          <option value="Romantica">
+            Escapada romántica
+          </option>
+
+          <option value="Familiar">
+            Experiencia familiar
+          </option>
+
+          <option value="Otro">
+            Otro
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div>
+
+        <label>Presupuesto aproximado</label>
+
+        <select name="presupuesto">
+
+          <option value="">
+            Prefiero conversarlo
+          </option>
+
+          <option value="Hasta S/500">
+            Hasta S/500
+          </option>
+
+          <option value="S/500 - S/1000">
+            S/500 - S/1,000
+          </option>
+
+          <option value="S/1000 - S/2000">
+            S/1,000 - S/2,000
+          </option>
+
+          <option value="Más de S/2000">
+            Más de S/2,000
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="full">
+
+        <label>
+          ¿Qué te gustaría incluir en tu escapada?
+        </label>
+
+        <textarea
+          name="preferencias"
+          placeholder="Cuéntanos sobre alojamiento, actividades, transporte o experiencias que te interesen."></textarea>
+
+      </div>
+
+
+      <div class="full">
+
+        <label>
+          Comentarios adicionales
+        </label>
+
+        <textarea
+          name="comentarios"
+          placeholder="¿Hay algo más que debamos saber para preparar tu propuesta?"></textarea>
+
+      </div>
+
+    </div>
+
+
+    <label class="consent">
+
+      <input
+        type="checkbox"
+        name="consentimiento"
+        required>
+
+      <span>
+        Autorizo a Out of Office a utilizar los datos proporcionados
+        para contactarme y gestionar mi solicitud de escapada.
+      </span>
+
+    </label>
+
+
+    <button type="submit">
+
+      Solicitar mi escapada ✈
+
+    </button>
+
+
+    <div
+      class="message"
+      id="mensaje">
+
+      ¡Perfecto! Tu formulario está listo.
+      En el siguiente paso conectaremos la solicitud con Out of Office.
+
+    </div>
+
+  </form>
+
+</div>
+
+</main>
+
+
+<footer>
+
+  <strong>Out of Office</strong><br>
+
+  Tú desconéctate, nosotros organizamos tu escapada.
+
+</footer>
+
+
+<script>
+
+document
+  .getElementById("solicitudForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    document
+      .getElementById("mensaje")
+      .style.display = "block";
+
+  });
+
+</script>
+
+
+</body>
+</html>
